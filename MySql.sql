@@ -4,6 +4,19 @@ CREATE DATABASE IF NOT EXISTS trendify;
 -- Sử dụng cơ sở dữ liệu
 USE trendify;
 
+
+-- ========================
+-- PasswordResetToken
+-- ========================
+
+CREATE TABLE PasswordResetToken (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    token VARCHAR(255) NOT NULL,
+    expiry_date DATETIME NOT NULL,
+    user_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES User(id)
+);
+
 -- ========================
 -- ROLE
 -- ========================
@@ -423,3 +436,11 @@ BEGIN
     END IF;
 END //
 DELIMITER ;
+
+-- ========================
+-- INSERT
+-- ========================
+INSERT INTO Role (name) VALUES
+('admin'),
+('employee'),
+('user');
