@@ -1,3 +1,9 @@
+-- Tạo cơ sở dữ liệu
+CREATE DATABASE IF NOT EXISTS trendify;
+
+-- Sử dụng cơ sở dữ liệu
+USE trendify;
+
 -- ========================
 -- ROLE
 -- ========================
@@ -280,7 +286,6 @@ CREATE TABLE Payment (
 CREATE TABLE RoyaltyPoints (
     id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT NOT NULL,
-    total_points DECIMAL(10,2) DEFAULT 0,
     order_id INT,
     bill_id INT,
     points DECIMAL(10,2) NOT NULL,
